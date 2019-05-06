@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/14</span>
+        <span class='fraction'>14/14</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">83.33% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/6</span>
+        <span class='fraction'>5/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/1</span>
+        <span class='fraction'>1/1</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/12</span>
+        <span class='fraction'>12/12</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -93,29 +93,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
  * Copy the values of all enumerable own properties from one or more source objects to a target object.
  *
@@ -128,36 +128,36 @@
  * // {name: 'fiy', version: '1.0.0'}
  * assign({name: 'fiy'}, {version: '1.0.0'})
  */
-const assign = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(t</span>arget: any, <span class="cstat-no" title="statement not covered" >...sources: object[])</span>: any =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  if (target == null) {</span>
+const assign = (target: any, ...sources: object[]): any =&gt; {
+  if (target == null) {
     // TypeError if undefined or null
-<span class="cstat-no" title="statement not covered" >    throw new TypeError('Cannot convert undefined or null to object');</span>
+    throw new TypeError('Cannot convert undefined or null to object');
   }
-  const length = <span class="cstat-no" title="statement not covered" >sources.length;</span>
+  const length = sources.length;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  for (let index = <span class="cstat-no" title="statement not covered" >0;</span> index &lt; length; index++) {</span>
-    const next: any = <span class="cstat-no" title="statement not covered" >sources[index];</span>
+  for (let index = 0; index &lt; length; index++) {
+    const next: any = sources[index];
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (next !== null) {</span>
+    if (next !== null) {
       // Skip over if undefined or null
-<span class="cstat-no" title="statement not covered" >      for (const key in next) {</span>
+      for (const key in next) {
         // Avoid bugs when hasOwnProperty is shadowed
-<span class="cstat-no" title="statement not covered" >        if ({}.hasOwnProperty.call(next, key)) {</span>
-<span class="cstat-no" title="statement not covered" >          target[key] = next[key];</span>
+        <span class="missing-if-branch" title="else path not taken" >E</span>if ({}.hasOwnProperty.call(next, key)) {
+          target[key] = next[key];
         }
       }
     }
   }
-<span class="cstat-no" title="statement not covered" >  return target;</span>
+  return target;
 };
-<span class="cstat-no" title="statement not covered" >export default assign;</span>
+export default assign;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon May 06 2019 16:53:56 GMT+0800 (GMT+08:00)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon May 06 2019 17:48:26 GMT+0800 (GMT+08:00)
 </div>
 </div>
 <script src="prettify.js"></script>

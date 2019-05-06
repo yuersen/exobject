@@ -30,9 +30,8 @@
 var type = function(obj) {
   return {}.toString
     .call(obj)
-    .toLowerCase()
-    .replace(/\[|\]/g, '')
-    .substring(7);
+    .slice(8, -1)
+    .toLowerCase();
 };
 
 /**
@@ -267,4 +266,107 @@ var isArray = function(obj) {
   return type(obj) === 'array';
 };
 
-export { isArray, isBoolean, isDate, isElement, isFunction, isNaN, isNull, isNumber, isObject, isString, isUndefined, type };
+/**
+ * Copy the values of all enumerable own properties from one or more source objects to a target object.
+ *
+ * @function
+ * @param {Object} target The target object
+ * @param {Object[]} sources The source object
+ * @returns {Object}
+ * @example
+ *
+ * // {name: 'fiy', version: '1.0.0'}
+ * assign({name: 'fiy'}, {version: '1.0.0'})
+ */
+var assign = function(target) {
+  var sources = [];
+  for (var _i = 1; _i < arguments.length; _i++) {
+    sources[_i - 1] = arguments[_i];
+  }
+  if (target == null) {
+    // TypeError if undefined or null
+    throw new TypeError('Cannot convert undefined or null to object');
+  }
+  var length = sources.length;
+  for (var index = 0; index < length; index++) {
+    var next = sources[index];
+    if (next !== null) {
+      // Skip over if undefined or null
+      for (var key in next) {
+        // Avoid bugs when hasOwnProperty is shadowed
+        if ({}.hasOwnProperty.call(next, key)) {
+          target[key] = next[key];
+        }
+      }
+    }
+  }
+  return target;
+};
+
+/**
+ *  Copy the target and removing any reference
+ * @param {Any} target Copy target
+ * @returns {Any}
+ */
+var copy = function(target) {
+  var copies = target;
+  var targetType = type(target);
+  if (targetType === 'array') {
+    copies = [];
+    for (var i = 0, l = target.length; i < l; i++) {
+      copies[i] = copy(target[i]);
+    }
+  } else if (targetType === 'object') {
+    copies = {};
+    for (var key in target) {
+      copies[key] = copy(target[key]);
+    }
+  }
+  return copies;
+};
+/**
+ * Merge two objects recursively.
+ *
+ * @function
+ * @param {Object} target The target object
+ * @param {Object[]} sources The source object
+ */
+var recursive = function(target, source) {
+  if (type(target) !== 'object') {
+    return source;
+  }
+  for (var key in source) {
+    if (type(target[key]) === 'object' && type(source[key]) === 'object') {
+      target[key] = recursive(target[key], source[key]);
+    } else {
+      target[key] = source[key];
+    }
+  }
+  return target;
+};
+/**
+ * Merge a given object with all the properties in passed-in object(s).
+ *
+ * @function
+ * @param {Object} target The target object
+ * @param {Object[]} sources The source object
+ * @returns {Object}
+ */
+var merge = function(target) {
+  var sources = [];
+  for (var _i = 1; _i < arguments.length; _i++) {
+    sources[_i - 1] = arguments[_i];
+  }
+  var length = sources.length;
+  for (var i = 0; i < length; i++) {
+    var next = sources[i];
+    if (next !== null) {
+      for (var key in next) {
+        target[key] = recursive(target[key], copy(next[key]));
+      }
+    }
+  }
+  return target;
+};
+
+export { assign, isArray, isBoolean, isDate, isElement, isFunction, isNaN, isNull, isNumber, isObject, isString, isUndefined, merge, type };
