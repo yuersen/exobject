@@ -4,7 +4,7 @@ import isNumber from './isNumber';
  * Determines whether it is an NaN,It is mostly used to detect the results of parseFloat() and parseInt().
  *
  * @function
- * @param  {Any} obj Parameters to be determined
+ * @param  {*} obj Parameters to be determined
  * @returns {Boolean}
  * @example
  * 

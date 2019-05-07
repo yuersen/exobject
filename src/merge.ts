@@ -2,8 +2,9 @@ import type from './type';
 
 /**
  *  Copy the target and removing any reference
- * @param {Any} target Copy target
- * @returns {Any}
+ *
+ * @param {*} target Copy target
+ * @returns {*}
  */
 const copy = (target: any): any => {
   let copies = target;
@@ -28,7 +29,7 @@ const copy = (target: any): any => {
  *
  * @function
  * @param {Object} target The target object
- * @param {Object[]} sources The source object
+ * @param {Object[]} source The source object
  */
 const recursive = (target: any, source: any): any => {
   if (type(target) !== 'object') {

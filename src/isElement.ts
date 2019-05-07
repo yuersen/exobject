@@ -2,7 +2,7 @@
  * Determines whether it is an Element.
  *
  * @function
- * @param  {Any} obj Parameters to be determined
+ * @param  {*} obj Parameters to be determined
  * @returns {Boolean}
  * @example
  * 

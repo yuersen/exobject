@@ -2,7 +2,7 @@
  * Ouput the type of specified parameter.
  *
  * @function
- * @param  {Any} obj Any JavaScript data type
+ * @param  {*} obj Any JavaScript data type
  * @returns {String}
  * @example
  *

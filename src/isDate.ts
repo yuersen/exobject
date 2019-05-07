@@ -4,7 +4,7 @@ import type from './type';
  * Determines whether it is an Date.
  *
  * @function
- * @param  {Any} obj Parameters to be determined
+ * @param  {*} obj Parameters to be determined
  * @returns {Boolean}
  * @example
  *

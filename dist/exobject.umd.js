@@ -8,7 +8,7 @@
    * Ouput the type of specified parameter.
    *
    * @function
-   * @param  {Any} obj Any JavaScript data type
+   * @param  {*} obj Any JavaScript data type
    * @returns {String}
    * @example
    *
@@ -44,7 +44,7 @@
    * Determines whether it is an Boolean.
    *
    * @function
-   * @param  {Any} obj Parameters to be determined
+   * @param  {*} obj Parameters to be determined
    * @returns {Boolean}
    * @example
    *
@@ -65,7 +65,7 @@
    * Determines whether it is an String.
    *
    * @function
-   * @param  {Any} obj Parameters to be determined
+   * @param  {*} obj Parameters to be determined
    * @returns {Boolean}
    * @example
    *
@@ -86,7 +86,7 @@
    * Determines whether it is an Undefined.
    *
    * @function
-   * @param  {Any} obj Parameters to be determined
+   * @param  {*} obj Parameters to be determined
    * @returns {Boolean}
    * @example
    *
@@ -107,7 +107,7 @@
    * Determines whether it is an Number.
    *
    * @function
-   * @param  {Any} obj Parameters to be determined
+   * @param  {*} obj Parameters to be determined
    * @returns {Boolean}
    * @example
    *
@@ -128,7 +128,7 @@
    * Determines whether it is an NaN,It is mostly used to detect the results of parseFloat() and parseInt().
    *
    * @function
-   * @param  {Any} obj Parameters to be determined
+   * @param  {*} obj Parameters to be determined
    * @returns {Boolean}
    * @example
    *
@@ -149,7 +149,7 @@
    * Determines whether it is an Date.
    *
    * @function
-   * @param  {Any} obj Parameters to be determined
+   * @param  {*} obj Parameters to be determined
    * @returns {Boolean}
    * @example
    *
@@ -170,7 +170,7 @@
    * Determines whether it is an Element.
    *
    * @function
-   * @param  {Any} obj Parameters to be determined
+   * @param  {*} obj Parameters to be determined
    * @returns {Boolean}
    * @example
    *
@@ -191,7 +191,7 @@
    * Determines whether it is an Function.
    *
    * @function
-   * @param  {Any} obj Parameters to be determined
+   * @param  {*} obj Parameters to be determined
    * @returns {Boolean}
    * @example
    *
@@ -212,7 +212,7 @@
    * Determines whether it is an null.
    *
    * @function
-   * @param  {Any} obj Parameters to be determined
+   * @param  {*} obj Parameters to be determined
    * @returns {Boolean}
    * @example
    *
@@ -225,15 +225,15 @@
    * // -> false
    * isNull(2019);
    */
-  var isNull = function(o) {
-    return null === o;
+  var isNull = function(obj) {
+    return null === obj;
   };
 
   /**
    * Determines whether it is an Object.
    *
    * @function
-   * @param  {Any} obj Parameters to be determined
+   * @param  {*} obj Parameters to be determined
    * @returns {Boolean}
    * @example
    *
@@ -255,7 +255,7 @@
    * Determines whether it is an array.
    *
    * @function
-   * @param  {Any} obj Parameters to be determined
+   * @param  {*} obj Parameters to be determined
    * @return {Boolean}  If is an array return true
    * @example
    *
@@ -311,8 +311,9 @@
 
   /**
    *  Copy the target and removing any reference
-   * @param {Any} target Copy target
-   * @returns {Any}
+   *
+   * @param {*} target Copy target
+   * @returns {*}
    */
   var copy = function(target) {
     var copies = target;
@@ -335,7 +336,7 @@
    *
    * @function
    * @param {Object} target The target object
-   * @param {Object[]} sources The source object
+   * @param {Object[]} source The source object
    */
   var recursive = function(target, source) {
     if (type(target) !== 'object') {

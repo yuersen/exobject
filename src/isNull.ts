@@ -2,7 +2,7 @@
  * Determines whether it is an null.
  *
  * @function
- * @param  {Any} obj Parameters to be determined
+ * @param  {*} obj Parameters to be determined
  * @returns {Boolean}
  * @example
  *
@@ -15,8 +15,8 @@
  * // -> false
  * isNull(2019);
  */
-const isNull = (o: any): boolean => {
-  return null === o;
+const isNull = (obj: any): boolean => {
+  return null === obj;
 };
 
 export default isNull;

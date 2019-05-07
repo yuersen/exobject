@@ -4,7 +4,7 @@ import type from './type';
  * Determines whether it is an array.
  *
  * @function
- * @param  {Any} obj Parameters to be determined
+ * @param  {*} obj Parameters to be determined
  * @return {Boolean}  If is an array return true
  * @example
  *
