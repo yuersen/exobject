@@ -1,6 +1,7 @@
 /**
  * Ouput the type of specified parameter.
  *
+ * @see http://jsperf.com/typeofvar
  * @function
  * @param  {*} obj Any JavaScript data type
  * @returns {String}
